@@ -1,4 +1,4 @@
-# @masumdev/rn-toast"
+# Simple React Native Toast (Like Samsung Notif)
 
 A simple toast for react native like samsung notification.
 
@@ -18,9 +18,9 @@ A simple toast for react native like samsung notification.
 ## Installation
 
 ```bash
-npm install @masumdev/rn-toast"
+npm install @masumdev/rn-toast
 # or
-yarn add @masumdev/rn-toast"
+yarn add @masumdev/rn-toast
 ```
 
 ### Dependencies
@@ -39,7 +39,7 @@ Make sure to follow the [react-native-reanimated installation instructions](http
 ```jsx
 import React from 'react';
 import { View } from 'react-native';
-import { Toaster } from '@masumdev/rn-toast"';
+import { Toaster } from '@masumdev/rn-toast';
 
 export default function App() {
   return (
@@ -56,7 +56,7 @@ export default function App() {
 ```jsx
 import React from 'react';
 import { Button, View } from 'react-native';
-import { useToast } from '@masumdev/rn-toast"';
+import { useToast } from '@masumdev/rn-toast';
 
 export default function MyComponent() {
   const { showToast } = useToast();
@@ -110,7 +110,7 @@ You can customize the default behavior of the Toaster component:
 ```jsx
 import React from 'react';
 import { View } from 'react-native';
-import { Toaster } from '@masumdev/rn-toast"';
+import { Toaster } from '@masumdev/rn-toast';
 
 export default function App() {
   return (
@@ -142,7 +142,7 @@ You can manually hide toasts using the `hideToast` function:
 ```jsx
 import React from 'react';
 import { Button, View } from 'react-native';
-import { useToast } from '@masumdev/rn-toast"';
+import { useToast } from '@masumdev/rn-toast';
 
 export default function MyComponent() {
   const { showToast, hideToast } = useToast();
