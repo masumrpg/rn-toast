@@ -72,25 +72,12 @@ class ToastManagerSingleton {
     return ToastManagerSingleton.instance;
   }
 
-  /** Set the toast reference to manage global toasts. */
   setToastRef(ref: ToastRef | null) {
-    if (ref) {
-      this.toastRef = ref;
-      // Notify any pending listeners
-      this.listeners.forEach((listener) => listener(ref));
-      this.listeners.clear();
-
-      // Process any queued toasts
-      this.processQueue();
-    }
+    this.toastRef = ref;
   }
 
-  /** Set animation state */
   setAnimating(isAnimating: boolean) {
     this.isAnimating = isAnimating;
-    if (!isAnimating) {
-      this.processQueue();
-    }
   }
 
   /** Process queued toast messages */
@@ -120,39 +107,24 @@ class ToastManagerSingleton {
 
   /** Show a toast message. */
   show(message: string, type: ToastType = "info", options?: ToastOptions) {
-    // Validate message content
-    if (!this.isValidToastRequest(message)) {
-      return; // Ignore empty messages
-    }
-
-    // Throttle rapid toast requests
-    const now = Date.now();
-    if (now - this.lastToastTime < THROTTLE_DELAY) {
-      // If request is too soon after the last one, queue it instead
-      if (this.queue.length < MAX_QUEUE_SIZE) {
-        this.queue.push({ message, type, options });
-      }
+    // Validasi pesan kosong
+    if (!message || message.trim() === "") {
       return;
     }
 
-    if (this.toastRef && !this.isAnimating) {
-      this.isAnimating = true;
-      this.lastToastTime = now;
-      this.toastRef.show(message, type, options);
-    } else {
-      // Check if queue has reached maximum size
-      if (this.queue.length < MAX_QUEUE_SIZE) {
-        // Queue the show request
-        this.queue.push({ message, type, options });
+    // Anti-spam check
+    const now = Date.now();
+    if (now - this.lastToastTime < THROTTLE_DELAY || this.isAnimating) {
+      return; // Skip jika masih dalam cooldown atau sedang animasi
+    }
 
-        if (!this.toastRef) {
-          // Wait for ref to be available
-          this.onReady((ref) => {
-            this.processQueue();
-          });
-        }
-      }
-      // If queue is already at maximum size, the request is ignored
+    // Update waktu toast terakhir
+    this.lastToastTime = now;
+
+    // Tampilkan toast
+    if (this.toastRef) {
+      this.isAnimating = true;
+      this.toastRef.show(message, type, options);
     }
   }
 

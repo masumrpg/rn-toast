@@ -2,6 +2,10 @@
 
 A customizable Toast notification library for React Native applications with smooth animations.
 
+![Toast Demo](./demo-toast.gif)
+
+*Demo showing various toast notifications: success, error, and info types with smooth animations and anti-spam protection*
+
 ## Features
 
 - 🚀 Lightweight and performant
@@ -165,3 +169,20 @@ export default function MyComponent() {
 ## License
 
 MIT
+
+
+## Author
+
+**Ma'sum** - *React Native Developer from Indonesia*
+
+I'm a React Native developer passionate about creating smooth and performant mobile applications. This toast library is part of my commitment to the React Native community, providing simple yet powerful solutions for common UI needs.
+
+- 📱 React Native Developer
+- 🇮🇩 Based in Indonesia
+- 🔧 Focused on building reusable and performant components
+- 💻 Open source contributor
+
+Feel free to reach out for questions, suggestions, or collaborations!
+
+---
+Built with ❤️ in Indonesia
