@@ -1,6 +1,6 @@
 # @masumdev/rn-toast"
 
-A customizable Toast notification library for React Native applications with smooth animations.
+A simple toast for react native like samsung notification.
 
 ![Toast Demo](./demo-toast.gif)
 
