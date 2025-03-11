@@ -1,6 +1,8 @@
-# Simple React Native Toast (Like Samsung Notif)
+# @masumdev/rn-toast
 
-A simple toast for react native like samsung notification.
+[![npm version](https://badge.fury.io/js/@masumdev%2Frn-toast.svg)](https://badge.fury.io/js/@masumdev%2Frn-toast)
+
+A simple toast for React Native, inspired by Samsung notifications. This library provides a lightweight toast component with smooth animations and anti-spam protection, ensuring a seamless user experience.
 
 ![Toast Demo](./demo-toast.gif)
 
