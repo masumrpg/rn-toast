@@ -1,0 +1,41 @@
+{
+  "name": "@masumrpg/rn-toast",
+  "version": "1.0.0",
+  "description": "A customizable toast notification library for React Native",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "lib/**/*",
+    "src/assets/images/*"
+  ],
+  "keywords": [
+    "react-native",
+    "toast",
+    "notification",
+    "alert",
+    "mobile"
+  ],
+  "author": "Masum",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0",
+    "react-native-reanimated": ">=2.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.70.0",
+    "react": "^18.0.0",
+    "react-native": "^0.70.0",
+    "react-native-reanimated": "^2.0.0",
+    "typescript": "^4.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "your-git-repository-url"
+  }
+}
