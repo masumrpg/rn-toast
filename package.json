@@ -1,5 +1,5 @@
 {
-  "name": "@masumrpg/rn-toast",
+  "name": "@masumdev/rn-toast",
   "version": "1.0.0",
   "description": "A customizable toast notification library for React Native",
   "main": "lib/index.js",
