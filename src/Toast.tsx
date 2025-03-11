@@ -22,11 +22,7 @@ import Animated, {
   withTiming,
   cancelAnimation,
 } from "react-native-reanimated";
-
-// Import default images
-import successImg from "./assets/images/success.png";
-import errorImg from "./assets/images/error.png";
-import infoImg from "./assets/images/info.png";
+import { ASSETS } from "./constants";
 
 // Constants
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -107,7 +103,7 @@ class ToastManagerSingleton {
         this.toastRef.show(
           nextToast.message,
           nextToast.type,
-          nextToast.options,
+          nextToast.options
         );
       } else {
         // Skip empty messages and process next item
@@ -213,7 +209,7 @@ export const Toast = forwardRef<ToastRef, ToastComponentProps>((props, ref) => {
     defaultDuration = 4000,
     defaultAnimationDuration = 400,
     customIcons,
-    customColors
+    customColors,
   } = props;
 
   const [config, setConfig] = useState<ToastConfig>({
@@ -243,7 +239,7 @@ export const Toast = forwardRef<ToastRef, ToastComponentProps>((props, ref) => {
     show: (
       message: string,
       type: ToastType = "info",
-      options?: ToastOptions,
+      options?: ToastOptions
     ) => {
       // Skip empty messages
       if (!message || message.trim() === "") {
@@ -294,7 +290,7 @@ export const Toast = forwardRef<ToastRef, ToastComponentProps>((props, ref) => {
     if (textWidth > 0 && config.text && config.visible) {
       const totalWidth = Math.min(
         CONTAINER_SIZE + textWidth + PADDING,
-        SCREEN_WIDTH - 32,
+        SCREEN_WIDTH - 32
       );
 
       // Cancel any ongoing animations
@@ -303,12 +299,12 @@ export const Toast = forwardRef<ToastRef, ToastComponentProps>((props, ref) => {
 
       toastWidth.value = withDelay(
         config.animationDuration,
-        withTiming(totalWidth, { duration: config.animationDuration }),
+        withTiming(totalWidth, { duration: config.animationDuration })
       );
 
       textOpacity.value = withDelay(
         config.animationDuration * 2,
-        withTiming(1, { duration: config.animationDuration }),
+        withTiming(1, { duration: config.animationDuration })
       );
     }
   }, [textWidth, config.text, config.visible, config.animationDuration]);
@@ -338,7 +334,7 @@ export const Toast = forwardRef<ToastRef, ToastComponentProps>((props, ref) => {
     text: string,
     type: ToastType,
     animationDuration: number,
-    displayDuration: number,
+    displayDuration: number
   ) {
     // Validate text content
     if (!text || text.trim() === "") {
@@ -408,14 +404,14 @@ export const Toast = forwardRef<ToastRef, ToastComponentProps>((props, ref) => {
 
     toastWidth.value = withDelay(
       animDuration / 2,
-      withTiming(CONTAINER_SIZE, { duration: animDuration / 2 }),
+      withTiming(CONTAINER_SIZE, { duration: animDuration / 2 })
     );
 
     transY.value = withDelay(
       animDuration,
       withTiming(-100, { duration: animDuration }, () => {
         runOnJS(completeHideAnimation)(callback);
-      }),
+      })
     );
   }
 
@@ -443,11 +439,11 @@ export const Toast = forwardRef<ToastRef, ToastComponentProps>((props, ref) => {
 
     switch (config.type) {
       case "success":
-        return successImg;
+        return ASSETS.success;
       case "error":
-        return errorImg;
+        return ASSETS.error;
       default:
-        return infoImg;
+        return ASSETS.info;
     }
   }
 
@@ -513,7 +509,10 @@ export const Toast = forwardRef<ToastRef, ToastComponentProps>((props, ref) => {
             { backgroundColor: getBackgroundColor() },
           ]}
         >
-          <Image source={getIconSource()} style={styles.image} />
+          <Image
+            source={getIconSource() as ImageSourcePropType}
+            style={styles.image}
+          />
           <View style={styles.textContainer}>
             <Animated.Text
               numberOfLines={1}
@@ -573,7 +572,7 @@ export interface ToastProps {
   showToast: (
     message: string,
     type?: ToastType,
-    options?: ToastOptions,
+    options?: ToastOptions
   ) => void;
   hideToast: (callback?: () => void) => void;
 }
@@ -603,7 +602,7 @@ export function useToast(): ToastProps {
     showToast: (
       message: string,
       type: ToastType = "info",
-      options?: ToastOptions,
+      options?: ToastOptions
     ) => {
       // Skip empty messages
       if (!message || message.trim() === "") {
@@ -641,5 +640,11 @@ export function useToast(): ToastProps {
  * }
  */
 export const Toaster = () => {
-  return <Toast ref={(ref) => ref && ToastManager.setToastRef(ref)} />;
+  return (
+    <Toast
+      ref={(ref) => {
+        if (ref) ToastManager.setToastRef(ref);
+      }}
+    />
+  );
 };

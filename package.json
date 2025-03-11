@@ -5,12 +5,15 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "clean": "rm -rf lib",
+    "build:ts": "tsc",
+    "build:assets": "mkdir -p lib/assets/images && cp -r src/assets/images/*.png lib/assets/images/",
+    "build": "npm run clean && npm run build:ts && npm run build:assets",
     "prepare": "npm run build"
   },
   "files": [
     "lib/**/*",
-    "src/assets/images/*"
+    "src/assets/**/*"
   ],
   "keywords": [
     "react-native",
@@ -36,6 +39,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "your-git-repository-url"
+    "url": "https://github.com/masumrpg/rn-toast"
   }
 }

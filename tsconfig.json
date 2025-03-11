@@ -10,6 +10,6 @@
     "skipLibCheck": true,
     "jsx": "react-native"
   },
-  "include": ["src"],
+  "include": ["src", "src/**/*"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
