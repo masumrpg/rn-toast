@@ -2,13 +2,13 @@ import { Dimensions, Platform } from "react-native";
 
 const ASSETS = {
   success: Platform.select({
-    default: require("./assets/images/success.png"),
+    default: require("../assets/images/success.png"),
   }),
   error: Platform.select({
-    default: require("./assets/images/error.png"),
+    default: require("../assets/images/error.png"),
   }),
   info: Platform.select({
-    default: require("./assets/images/info.png"),
+    default: require("../assets/images/info.png"),
   }),
 };
 
