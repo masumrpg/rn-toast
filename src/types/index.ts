@@ -50,11 +50,14 @@ interface ToastProps {
   hideToast: (callback?: () => void) => void;
 }
 
+interface ToasterComponentProps extends ToastComponentProps {}
+
 export type {
   ToastType,
   ToastOptions,
   ToastRef,
   ToastConfig,
   ToastComponentProps,
-  ToastProps
-}
+  ToastProps,
+  ToasterComponentProps,
+};
