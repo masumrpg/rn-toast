@@ -4,9 +4,22 @@
 
 A simple toast for React Native, inspired by Samsung notifications. This library provides a lightweight toast component with smooth animations and anti-spam protection, ensuring a seamless user experience.
 
+## Demo
+
 <p align="center">
   <img src="./iphone-demo-toast.gif" alt="Toast Demo Iphone" width="45%" height="auto" style="vertical-align: top;" />
   <img src="./demo-toast.gif" alt="Toast Demo" width="45%" height="auto" style="vertical-align: top;" />
+</p>
+
+### Tutorial Video
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=ytdpXMd1fqU" target="_blank">
+    <img src="https://img.youtube.com/vi/ytdpXMd1fqU/maxresdefault.jpg"
+      alt="React Native Toast Demo"
+      width="600"
+      style="border-radius: 10px"
+    />
+  </a>
 </p>
 
 *Demo showing various toast notifications: success, error, and info types with smooth animations and anti-spam protection*
